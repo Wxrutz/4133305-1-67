@@ -9,8 +9,9 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const result = await signIn("credentials", {
         redirect: false,
@@ -18,39 +19,35 @@ export default function SignIn() {
         password,
       });
 
-      if (result.error) {
-        console.error(result.error);
-      } else {
-        router.push("/profile");
-      }
-    } catch (error) {
-      console.log("error", error);
+      if (result.error) console.error(result.error);
+      else router.push("/profile");
+    } catch (err) {
+      console.log(err);
     }
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handlerSubmit}>
         <div>
-          <label htmlFor="email">Email</label>
+          Email:
           <input
             id="email"
-            type="email"
+            type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          Password:
           <input
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </div>
+
         <button type="submit">Sign In</button>
       </form>
     </div>

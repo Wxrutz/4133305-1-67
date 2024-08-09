@@ -9,7 +9,7 @@ interface Props{
 }
 
 const Hook:FC <Props>= ({initHook}) => {
-    const [count,setCount] = useState<number>(initHook);
+    const [count,setCount] = useState<number>(0);
     const [data,setData] = useState();
 
    

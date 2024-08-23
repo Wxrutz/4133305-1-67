@@ -10,7 +10,7 @@ import Hook from "@/components/Hook";
     <h1>Wellcome to IT.BRU</h1>
       <p>Hello Typescripe</p>
 
-      <Basic initVal="1"  gender="Male"/>
+      <Basic initVal="1"/>
       <Hook initHook={Number(5)} /> 
 
     </>
